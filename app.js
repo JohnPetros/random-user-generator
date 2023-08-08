@@ -89,7 +89,6 @@ async function setActiveAttributeValue() {
 async function setUser(newUser) {
   const user = newUser ?? (await getUser());
   localStorage.setItem('random_user', JSON.stringify(user));
-  console.log(user);
 
   avatar.src = user.picture.large;
   const activeAttribute = getActiveAttribute() ?? 'name';
