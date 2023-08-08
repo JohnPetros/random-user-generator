@@ -40,6 +40,9 @@ function getActiveAttributeValue(user) {
     case 'address':
       value = `${user.location.street.number} ${user.location.street.name}`;
       break;
+    case 'phone':
+      value = `${user.phone}`;
+      break;
     default:
       value = `unknown`;
   }
