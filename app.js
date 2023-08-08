@@ -1,5 +1,6 @@
 const attributes = document.querySelectorAll('[data-attribute]');
 const avatar = document.querySelector('[data-avatar]');
+const newUserButton = document.querySelector('[data-new-user-button]');
 const activeAttributeValue = document.querySelector(
   '[data-active-attribute-value]'
 );
@@ -24,8 +25,6 @@ function getActiveAttributeValue(user) {
       ? `Hi, my ${activeAttribute} is`
       : `my ${activeAttribute} is`;
   let value = '';
-
-  console.log(activeAttribute);
 
   switch (activeAttribute) {
     case 'name':
@@ -87,15 +86,18 @@ async function setActiveAttributeValue() {
   activeAttributeValue.innerText = value;
 }
 
-async function setUser() {
-  const user = await getUser();
+async function setUser(newUser) {
+  const user = newUser ?? (await getUser());
   localStorage.setItem('random_user', JSON.stringify(user));
+  console.log(user);
 
   avatar.src = user.picture.large;
   const activeAttribute = getActiveAttribute() ?? 'name';
+  const activeAttributeElement = document.querySelector(
+    `[data-attribute="${activeAttribute}"]`
+  );
 
-  setActiveAttribute(activeAttribute);
-  setActiveAttributeValue();
+  handleAttributeElement(activeAttributeElement);
 }
 
 function activeAttribute(attribute) {
@@ -107,18 +109,28 @@ function activeAttribute(attribute) {
   attribute.classList.add('active');
 }
 
-function handleAttributeMouseOver({ currentTarget }) {
-  const { attribute } = currentTarget.dataset;
-  activeAttribute(currentTarget);
+function handleAttributeElement(attributeElement) {
+  const { attribute } = attributeElement.dataset;
+  activeAttribute(attributeElement);
   setActiveAttribute(attribute);
-  setActiveAttributeValue(attribute);
+  setActiveAttributeValue();
 }
 
+function handleAttributeMouseOver({ currentTarget }) {
+  handleAttributeElement(currentTarget);
+}
+
+async function handleNewUserButton() {
+  const newUser = await fetchUser();
+  setUser(newUser);
+}
+
+newUserButton.addEventListener('click', handleNewUserButton);
 attributes.forEach(attribute =>
   attribute.addEventListener('mouseover', handleAttributeMouseOver)
 );
 
-setUser();
+setUser(null);
 
 // cell
 // :
