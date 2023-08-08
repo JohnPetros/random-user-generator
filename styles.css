@@ -67,6 +67,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 header::before {
@@ -81,11 +82,34 @@ header::before {
   background-image: url('/images/bg-pattern-card.svg');
 }
 
+button {
+  cursor: pointer;
+  border: none;
+}
+
 .avatar {
   border: 4px solid white;
   border-radius: 50%;
   margin-top: 6.4rem;
 
+  z-index: 60;
+  cursor: pointer;
+}
+
+.avatar:hover + .new-user-button,
+.new-user-button:hover {
+  display: block;
+}
+
+.new-user-button {
+  display: none;
+  padding: 8px;
+  background-color: var(--very-dark-blue);
+  opacity: 0.8;
+  border-radius: 8px;
+  color: white;
+  position: absolute;
+  bottom: -1rem;
   z-index: 60;
 }
 
