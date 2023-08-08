@@ -104,7 +104,9 @@ function activeAttribute(attribute) {
   const currentActiveAttribute = document.querySelector(
     '[data-attribute].active'
   );
-  if (currentActiveAttribute) currentActiveAttribute.classList.remove('active');
+  if (currentActiveAttribute) {
+    currentActiveAttribute.classList.remove('active');
+  }
 
   attribute.classList.add('active');
 }
