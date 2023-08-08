@@ -38,7 +38,7 @@ function getActiveAttributeValue(user) {
       value = getFormatedDate(user.dob.date);
       break;
     case 'address':
-      value = `${user.name.first} ${user.name.last}`;
+      value = `${user.location.street.number} ${user.location.street.name}`;
       break;
     default:
       value = `unknown`;
