@@ -96,13 +96,7 @@ button {
   cursor: pointer;
 }
 
-.avatar:hover + .new-user-button,
-.new-user-button:hover {
-  display: block;
-}
-
 .new-user-button {
-  display: none;
   padding: 8px;
   background-color: var(--very-dark-blue);
   opacity: 0.8;
@@ -111,6 +105,18 @@ button {
   position: absolute;
   bottom: -1rem;
   z-index: 60;
+
+  transition: all 0.3s;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.avatar:hover + .new-user-button,
+.new-user-button:hover {
+  pointer-events: all;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .active-attibute {
