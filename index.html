@@ -22,20 +22,36 @@
   <body>
     <main>
       <header>
-        <img class="avatar" src="images/image-victor.jpg" alt="" />
-        <strong class="name">Victor Crest <span class="age">26</span></strong>
-        <small class="location">Lodon - England</small>
+        <img
+          data-avatar
+          class="avatar"
+          src=""
+          width="140"
+          height="140"
+          alt="user avatar"
+        />
+        <!-- <strong data-attribute="name" class="name">Victor Crest <span class="age">26</span></strong>
+        <small data-attribute="location" class="location">Lodon - England</small> -->
       </header>
+      <div class="active-attibute">
+        <span data-active-attribute-label class="active-attribute-label"></span>
+        <p data-active-attribute-value class="active-attribute-value"></p>
+      </div>
+
       <footer>
         <ul>
-          <li><i class="ph ph-user-circle"></i></li>
-          <li><i class="ph ph-envelope"></i></li>
-          <li><i class="ph ph-calendar-blank"></i></li>
-          <li><i class="ph ph-map-trifold"></i></li>
-          <li><i class="ph ph-phone"></i></li>
-          <li><i class="ph ph-lock-key"></i></li>
+          <li data-attribute="name"><i class="ph ph-user-circle"></i></li>
+          <li data-attribute="email"><i class="ph ph-envelope"></i></li>
+          <li data-attribute="birthday">
+            <i class="ph ph-calendar-blank"></i>
+          </li>
+          <li data-attribute="location"><i class="ph ph-map-trifold"></i></li>
+          <li data-attribute="phone"><i class="ph ph-phone"></i></li>
+          <li data-attribute="password"><i class="ph ph-lock-key"></i></li>
         </ul>
       </footer>
     </main>
   </body>
+
+  <script src="app.js"></script>
 </html>
