@@ -43,6 +43,9 @@ function getActiveAttributeValue(user) {
     case 'phone':
       value = `${user.phone}`;
       break;
+    case 'password':
+      value = `${user.login.password}`;
+      break;
     default:
       value = `unknown`;
   }
