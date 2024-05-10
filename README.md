@@ -26,7 +26,7 @@
 
 ### ⏹️ Demonstration
 
-![Demonstration of the App](image.png)
+![Demonstration of the App](preview.png)
 
 ---
 
